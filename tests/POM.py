@@ -73,3 +73,9 @@ class InputField(UIElement):
         self.name = name
         self.input_field = self.location.get_by_role("textbox", name=name)
 
+class TableCell(UIElement):
+    def __init__(self, page: Page, cell_text: str, parent: UIElement = None):
+        super().__init__(page, location=parent.location if parent else page)
+        self.cell_text = cell_text
+        self.table_cell = self.location.get_by_role("gridcell", name=cell_text)
+
